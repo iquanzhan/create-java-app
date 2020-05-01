@@ -3,9 +3,7 @@ package com.chengxiaoxiao.app.controller;
 import com.chengxiaoxiao.app.entity.User;
 import com.chengxiaoxiao.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +19,29 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/list")
+    @GetMapping
     public List<User> getAll() {
-        return userService.list();
+        return userService.list(null);
     }
+
+    @PostMapping
+    public User instert(@RequestBody User user) {
+        userService.save(user);
+        return user;
+    }
+
+    @DeleteMapping("/{id}")
+    public Boolean delete(@PathVariable("id") String id) {
+        userService.removeById(id);
+        return true;
+    }
+
+
+    @PutMapping("/{id}")
+    public User update(@PathVariable("id") String id, @RequestBody User user) {
+        user.setId(id);
+        userService.updateById(user);
+        return user;
+    }
+
 }

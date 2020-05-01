@@ -1,10 +1,10 @@
 package com.chengxiaoxiao.app.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * @Author: Cheng XiaoXiao  (🍊 ^_^ ^_^)
@@ -17,5 +17,19 @@ import org.springframework.stereotype.Component;
 public class User {
     @TableId(value = "id")
     private String id;
+
     private String userName;
+
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
+
+    @TableLogic
+    private Integer deleteStatus;
 }

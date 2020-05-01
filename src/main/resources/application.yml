@@ -43,6 +43,7 @@ spring:
       # 通过connectProperties属性来打开mergeSql(Sql合并)功能；慢SQL记录(配置超过5秒就是慢，默认是3秒)
       connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
+
 #开启sql显示
 mybatis-plus:
   configuration:
@@ -50,3 +51,5 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: id_worker_str
+      logic-delete-value: 1
+      logic-not-delete-value: 0
