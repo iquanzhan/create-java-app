@@ -1,5 +1,6 @@
 package com.chengxiaoxiao.web;
 
+import com.chengxiaoxiao.app.MainApplication;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +24,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  * @Description:
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = WebApplication.class)
+@SpringBootTest(classes = MainApplication.class)
 public class SysUserControllerTest {
 
     @Before

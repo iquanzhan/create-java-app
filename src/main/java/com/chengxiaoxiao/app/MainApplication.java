@@ -1,7 +1,10 @@
 package com.chengxiaoxiao.app;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @Author: Cheng XiaoXiao  (🍊 ^_^ ^_^)
@@ -9,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description:
  */
 @SpringBootApplication
+@EnableSwagger2
+@MapperScan("com.chengxiaoxiao.app.mapper")
 public class MainApplication {
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class);
